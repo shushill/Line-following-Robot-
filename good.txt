@@ -1,0 +1,147 @@
+/*-------definning Inputs------*/
+#define RS 2      // left sensor
+#define LS 3      // right sensor
+#define MS 8      // left sensor
+#define RS1 9      // right sensor
+#define LS1 10      // left sensor
+
+
+/*-------definning Outputs------*/
+#define LM1 4       // left motor
+#define LM2 5       // left motor
+#define RM1 6       // right motor
+#define RM2 7       // right motor
+
+void setup()
+{
+  pinMode(LS, INPUT);
+    pinMode(MS, INPUT);
+      pinMode(LS1, INPUT);
+  pinMode(RS1, INPUT);
+    pinMode(RS, INPUT);
+  pinMode(LM1, OUTPUT);
+  pinMode(LM2, OUTPUT);
+  pinMode(RM1, OUTPUT);
+  pinMode(RM2, OUTPUT);
+}
+
+void loop()
+{
+if(digitalRead(LS) && digitalRead(LS1)  && !(digitalRead(MS)) && digitalRead(RS) && digitalRead(RS1))
+{
+forward();
+
+if(digitalRead(LS) && digitalRead(LS1)  && !(digitalRead(MS)) && digitalRead(RS) && digitalRead(RS1))
+{
+forward();
+if(digitalRead(LS) && digitalRead(LS1)  && !(digitalRead(MS)) && !(digitalRead(RS)) && !(digitalRead(RS1)))
+
+
+
+  left();
+
+if(!(digitalRead(MS)))
+  
+    forward();
+    else
+    {
+delay(10);
+}
+}
+
+
+if(digitalRead(LS) && digitalRead(LS1) && digitalRead(MS) && digitalRead(RS) && digitalRead(RS1))
+
+  
+ 
+ left();
+  if(!(digitalRead(MS)))
+  
+    forward();
+    else
+    {
+      delay(10);
+
+    }
+}
+  
+}
+
+
+//functions
+
+
+  void forward()
+  {
+    digitalWrite(LM1, HIGH);
+    digitalWrite(LM2, LOW);        //fuction of mving forward
+    digitalWrite(RM1, HIGH);
+    digitalWrite(RM2, LOW);
+  }
+void stope()
+    {
+    digitalWrite(LM1, LOW);
+    digitalWrite(LM2, LOW);         //function of stop
+    digitalWrite(RM1, LOW);
+    digitalWrite(RM2, LOW);
+   }
+  void right()
+
+{
+    digitalWrite(LM1, LOW);
+    digitalWrite(LM2, LOW);
+    digitalWrite(RM1, HIGH);       //turn right
+    digitalWrite(RM2, LOW);
+}
+void left()
+      {
+    digitalWrite(LM1, HIGH);
+    digitalWrite(LM2, LOW);
+    digitalWrite(RM1, LOW);               //turn left
+    digitalWrite(RM2, LOW);
+      }
+      void meter()
+      {
+        forward();
+        delay(1000);
+        if(digitalRead(LS) && digitalRead(RS) && digitalRead(MS) && digitalRead(LS1) && digitalRead(RS1))  
+        {
+          backward();
+          if(!(digitalRead(LS)) && !(digitalRead(LS1)) && !(digitalRead(MS)) && digitalRead(RS) && digitalRead(RS1))
+          {
+            left();
+          }
+          else if(digitalRead(LS) && digitalRead(LS1) && !(digitalRead(MS)) && !(digitalRead(RS)) && !(digitalRead(RS1)))
+          {
+            right();
+            }
+          }
+        }
+        void backward()
+          {
+    digitalWrite(LM1, LOW);
+    digitalWrite(LM2, HIGH);        //fuction of mving forward
+    digitalWrite(RM1, LOW);
+    digitalWrite(RM2, HIGH);
+  }
+          
+          
+          
+        
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
